@@ -14,6 +14,15 @@
   to be defined in this file.*/
 double rk4(double y_0, t_0, h);
 
+/* Structure for domain.
+   Takes 4 arguments:
+   int cells (how many cells in domain)
+   double values[cells] (values in cells)
+   double coordinates[cells] (coordinates of cells)
+   double start (beginning of domain location)
+   double end (end of domain location)*/
+struct Domain;
+
 static inline double Wtime(void)
 {
 	struct timeval tv;
