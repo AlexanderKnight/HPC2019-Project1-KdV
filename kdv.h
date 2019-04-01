@@ -11,14 +11,14 @@ Takes:
 - Spacially previous values y_bb=y_(i-2), y_b=y_(i-1)
 - the current value y_0=y_(i)
 - Spacially post values y_a=y_(i+1), y_aa=y_(i+2)
-- current time t_0
+- distance between points deltaX
 - timestep h (t_(i+1)-t_(i))
   Requires EoS function (func) 
   to be defined in this file.*/
 double rk4(double y_bb, double y_b,
 	double y_0,
 	double y_a, double y_aa,
-       	double t_0, double h);
+       	double deltaX, double h);
 
 static inline double Wtime(void)
 {
