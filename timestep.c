@@ -15,6 +15,8 @@ double* timestep(double* input, int _size, double t, double dt)
 
 	//Logic to prevent domain errors grabbing i-1 and i-2 data points & for loop to update output array
 	int backOne, backTwo;
+
+	#pragma omp parallel for
 	for(int i = 0; i < _size; i++)
 	{
 		if(i == 0)
