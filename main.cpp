@@ -6,7 +6,7 @@
 #include <sstream>
 #include <ctype.h>
 #include <algorithm>
-#include "rk4.h"
+#include "kdv.h"
 using namespace std;
 
 //Run command: 
@@ -34,9 +34,12 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	//create data structure
+	//create data structure and get important variables
+	int *double input = new int[size];
+	int time = 0; 
+	int deltaX = 0;
 
-
+	//Let us fill out data structure
 	while( stream)
 	{
 		//need format of data text file!
