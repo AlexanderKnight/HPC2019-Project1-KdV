@@ -83,7 +83,7 @@ int main(int argc, char **argv)
 	//call timestep using the previous iteration from 1 to numIter...
 	for(int i = 1; i < numIter; i++)
 	{
-		2d[i] = timestep(2d[i-1], size, deltaX, dt)
+		2d[i] = timestep(2d[i-1], size, deltaX, dt);
 	}
 	
 	//We now have a 2d Array with all iterations!
