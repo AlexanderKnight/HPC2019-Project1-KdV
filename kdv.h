@@ -6,6 +6,11 @@
 #include <sys/time.h>
 #include <stdlib.h>
 
+double func(double y_bb, y_b,
+		double y_0,
+		double y_a, double y_aa,
+		double deltaX)
+
 static inline double Wtime(void)
 {
 	struct timeval tv;
