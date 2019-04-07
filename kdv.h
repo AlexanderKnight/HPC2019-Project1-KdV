@@ -6,10 +6,10 @@
 #include <sys/time.h>
 #include <stdlib.h>
 
-double func(double y_bb, y_b,
+double func(double y_bb, double y_b,
 		double y_0,
 		double y_a, double y_aa,
-		double deltaX)
+		double deltaX);
 
 /* 4th-Order Runge Kutta
 Takes:
@@ -24,6 +24,8 @@ double rk4(double y_bb, double y_b,
 	double y_0,
 	double y_a, double y_aa,
        	double deltaX, double h);
+
+double* timestep(double* input, int _size, double t, double dt);
 
 static inline double Wtime(void)
 {
