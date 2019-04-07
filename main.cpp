@@ -6,6 +6,7 @@
 #include <sstream>
 #include <ctype.h>
 #include <algorithm>
+#include <cstring>
 #include "kdv.h"
 using namespace std;
 
@@ -36,10 +37,10 @@ int main(int argc, char **argv)
 	//Read in first double (size)
 	string x;
 	stream >> x;
-	double size = atof(x.c_str());
+	int size = atof(x.c_str());
 
 	//Create double array to hold data points
-	double* input = new int[size];
+	double* input = new double[size];
 
 	//Our time is initially 0 (may or may not need this in this file)
 	double time = 0; 
@@ -66,7 +67,7 @@ int main(int argc, char **argv)
 
 	//I want to timestep through each iteration, but lets make a 2d Array to keep track of all our iterations
 	// row 0 will be the first iteration, row 1 will be the second, and so on.
-	// our fourth point after the 7th iteration can be found by calling 2d[7][4]
+	// our fourth point after the 7th iteration can be found by calling TwoD[7][4]
 
 	//How many iterations do we want to do? Set 10 for now...
 	int numIter = 10;
@@ -75,15 +76,18 @@ int main(int argc, char **argv)
 	double dt = 0.5;
 
 	//creating 2d array:
-	double 2d[numIter][size - 1];
+	//double TwoD[numIter][size - 1];
+	double TwoD[numIter][size];
 
 	//Let us set iteration 0 to input
-	2d[0] = input; 
+	//TwoD[0] = input; 
+	memcpy(input, TwoD[0], size*sizeof(double));
 
 	//call timestep using the previous iteration from 1 to numIter...
 	for(int i = 1; i < numIter; i++)
 	{
-		2d[i] = timestep(2d[i-1], size, deltaX, dt);
+		//TwoD[i] = timestep(TwoD[i-1], size, deltaX, dt);
+		memcpy(timestep(TwoD[i-1], size, deltaX, dt), TwoD[i], size*sizeof(double));
 	}
 	
 	//We now have a 2d Array with all iterations!
