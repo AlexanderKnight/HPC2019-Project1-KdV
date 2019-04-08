@@ -84,14 +84,15 @@ int main(int argc, char **argv)
 	//double TwoD[numIter][size - 1];
 	double TwoD[numIter][size];
 
-	for(int i = 0; i < 20; i++)
-	{
-		cout << input[i] << endl;
-	}
+	
 
 	//Let us set iteration 0 to input
 	//TwoD[0] = input; 
 	memcpy(input, TwoD[0], size*sizeof(double));
+	for(int i = 0; i < 20; i++)
+	{
+		cout << twoD[0][i] << endl;
+	}
 
 	//call timestep using the previous iteration from 1 to numIter...
 	for(int i = 1; i < numIter; i++)
