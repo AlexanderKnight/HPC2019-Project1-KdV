@@ -91,5 +91,17 @@ int main(int argc, char **argv)
 	}
 	
 	//We now have a 2d Array with all iterations!
+
+    	string filename = "EvolvedData.dat";
+	ofstream datafile;
+	datafile.open(filename);
+	for (int i=0;i<numIter;i++){
+		for (int j=0;j<size;j++){
+			datafile << " " << TwoD[i][j];
+		}
+		datafile << "\n";
+	}
+	datafile.close();
 	return 0;
+
 }
