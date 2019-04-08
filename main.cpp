@@ -94,6 +94,11 @@ int main(int argc, char **argv)
 		//TwoD[i] = timestep(TwoD[i-1], size, deltaX, dt);
 		memcpy(timestep(TwoD[i-1], size, deltaX, dt), TwoD[i], size*sizeof(double));
 	}
+
+	for(int i = 0; i < 20; i++)
+	{
+		cout << xvals[i] << endl;
+	}
 	
 	//We now have a 2d Array with all iterations!
 
