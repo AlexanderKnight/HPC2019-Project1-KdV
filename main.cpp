@@ -82,23 +82,27 @@ int main(int argc, char **argv)
 
 	//creating 2d array:
 	//double TwoD[numIter][size - 1];
-	double TwoD[numIter][size];
+	double** TwoD = new double*[numIter];
+	for(int i = 0; i < numIter; i++)
+	{
+		TwoD[i] = new double[size];
+	}
 
 	
 
 	//Let us set iteration 0 to input
-	//TwoD[0] = input; 
-	memcpy(input, TwoD[0], size*sizeof(double));
-	for(int i = 0; i < 20; i++)
-	{
-		cout << twoD[0][i] << endl;
-	}
+	TwoD[0] = input; 
+	//memcpy(input, TwoD[0], size*sizeof(double));
+	//for(int i = 0; i < 20; i++)
+	//{
+		//cout << TwoD[0][i] << endl;
+	//}
 
 	//call timestep using the previous iteration from 1 to numIter...
 	for(int i = 1; i < numIter; i++)
 	{
-		//TwoD[i] = timestep(TwoD[i-1], size, deltaX, dt);
-		memcpy(timestep(TwoD[i-1], size, deltaX, dt), TwoD[i], size*sizeof(double));
+		TwoD[i] = timestep(TwoD[i-1], size, deltaX, dt);
+		//memcpy(timestep(TwoD[i-1], size, deltaX, dt), TwoD[i], size*sizeof(double));
 	}
 
 	
