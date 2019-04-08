@@ -41,6 +41,7 @@ int main(int argc, char **argv)
 
 	//Create double array to hold data points
 	double* input = new double[size];
+	double* xvals = new double[size];
 
 	//Our time is initially 0 (may or may not need this in this file)
 	double time = 0; 
@@ -58,6 +59,10 @@ int main(int argc, char **argv)
 		double val = atof(x.c_str());
 
 		input[index] = val;
+
+		stream >> x;
+		double val1 = atof(x.c_str());
+		xvals[index] = val1;
 		index += 1;
 	}
 	// Our input array should now hold all the original values... 
