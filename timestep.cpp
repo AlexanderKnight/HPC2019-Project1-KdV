@@ -8,10 +8,8 @@
  */
 
 
-double* timestep(double* input, int _size, double t, double dt)
+void timestep(double* input, int _size, double t, double dt, double* output)
 {
-	//Array to be outputted
-	double *output = new double[_size];
 
 	//Logic to prevent domain errors grabbing i-1 and i-2 data points & for loop to update output array
 	int backOne, backTwo;

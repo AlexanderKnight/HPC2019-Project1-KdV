@@ -25,7 +25,7 @@ double rk4(double y_bb, double y_b,
 	double y_a, double y_aa,
        	double deltaX, double h);
 
-double* timestep(double* input, int _size, double t, double dt);
+void timestep(double* input, int _size, double t, double dt, double* output);
 
 static inline double Wtime(void)
 {

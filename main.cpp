@@ -101,7 +101,7 @@ int main(int argc, char **argv)
 	//call timestep using the previous iteration from 1 to numIter...
 	for(int i = 1; i < numIter; i++)
 	{
-		TwoD[i] = timestep(TwoD[i-1], size, deltaX, dt);
+		timestep(TwoD[i-1], size, deltaX, dt, TwoD[i]);
 		//memcpy(timestep(TwoD[i-1], size, deltaX, dt), TwoD[i], size*sizeof(double));
 	}
 
