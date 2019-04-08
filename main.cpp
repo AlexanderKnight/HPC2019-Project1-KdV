@@ -97,7 +97,7 @@ int main(int argc, char **argv)
 
 	for(int i = 0; i < 20; i++)
 	{
-		cout << xvals[i] << endl;
+		cout << input[i] << endl;
 	}
 	
 	//We now have a 2d Array with all iterations!
