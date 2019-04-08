@@ -84,6 +84,11 @@ int main(int argc, char **argv)
 	//double TwoD[numIter][size - 1];
 	double TwoD[numIter][size];
 
+	for(int i = 0; i < 20; i++)
+	{
+		cout << input[i] << endl;
+	}
+
 	//Let us set iteration 0 to input
 	//TwoD[0] = input; 
 	memcpy(input, TwoD[0], size*sizeof(double));
@@ -95,10 +100,6 @@ int main(int argc, char **argv)
 		memcpy(timestep(TwoD[i-1], size, deltaX, dt), TwoD[i], size*sizeof(double));
 	}
 
-	for(int i = 0; i < 20; i++)
-	{
-		cout << input[i] << endl;
-	}
 	
 	//We now have a 2d Array with all iterations!
 
