@@ -34,7 +34,7 @@ double* timestep(double* input, int _size, double t, double dt)
 		}
 
 		// input: 5 data points for the i'th point
-		output[i] = rk4( input[(i+2)%_size], input[(i+1)%_size], input[(i)], input[backOne], input[backTwo], t, dt );
+		output[i] = rk4( input[backTwo], input[backOne], input[(i)], input[(i+1)%_size], input[(i+2)%_size], t, dt );
 	}
 
 	return output; 
