@@ -35,5 +35,5 @@ void timestep(double* input, int _size, double t, double dt, double* output)
 		output[i] = rk4( input[backTwo], input[backOne], input[(i)], input[(i+1)%_size], input[(i+2)%_size], t, dt );
 	}
 
-	return output; 
+//	return output; 
 }

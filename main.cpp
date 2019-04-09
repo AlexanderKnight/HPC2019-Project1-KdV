@@ -78,7 +78,7 @@ int main(int argc, char **argv)
 	int numIter = 10;
 
 	//How much time between iterations? Set 0.5 seconds for now...
-	double dt = 0.5;
+	double dt = 0.005;
 
 	//creating 2d array:
 	//double TwoD[numIter][size - 1];
