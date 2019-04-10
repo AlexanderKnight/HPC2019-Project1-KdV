@@ -34,4 +34,37 @@ static inline double Wtime(void)
 	return tv.tv_sec + tv.tv_usec / 1e6;
 }
 
+static inline int* checkBounds(int cur, int _size)
+{
+
+	int solution[5];
+
+	if(cur == 0)
+	{
+		solution[0] = _size - 2;
+		solution[1] = _size - 1;
+		solution[2] = cur;
+		solution[3] = cur  + 1;
+		solution[4] = cur + 2;
+	}
+	else if( cur == 1)
+	{
+		solution[0] = _size - 1;
+		solution[1] =  0;
+		solution[2] = cur;
+		solution[3] = cur  + 1;
+		solution[4] = cur + 2;
+	}
+	else
+	{
+		solution[0] =  cur - 2;
+		solution[1] =  cur - 1;
+		solution[2] = cur;
+		solution[3] =  (cur+ 1) %_size;
+		solution[4] = (cur + 2)%_size;
+	}
+
+	return solution;
+}
+
 #endif
