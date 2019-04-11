@@ -5,6 +5,7 @@
 // Include Wtime() for timing
 #include <sys/time.h>
 #include <stdlib.h>
+#include <iostream>
 
 double func(double y_bb, double y_b,
 		double y_0,
@@ -34,7 +35,7 @@ static inline double Wtime(void)
 static inline int* checkBounds(int cur, int _size)
 {
 
-	int solution[5];
+	int* solution = new int[5];
 
 	if(cur == 0)
 	{
