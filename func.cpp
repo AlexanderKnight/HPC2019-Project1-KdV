@@ -5,7 +5,11 @@ double func(double y_bb, double y_b,
 		double y_a, double y_aa, double deltaX)
 {
 	double a = -1.*(y_bb - (2.*y_b) + (2.*y_a)- y_aa)/(2.*deltaX*deltaX*deltaX);
+	printf("-y_bb: %g, 2*y_b: %g, -2*y_a: %g, y_aa: %g, 2*dx^2: %g\n",-y_bb,2.*y_b,-2.*y_a,y_aa,2.*deltaX*deltaX*deltaX);
+	printf("3*y_0*(y_a-y_b):%g, deltaX: %g\n",3.*y_0*(y_a-y_b),deltaX);
 	double b = (3.*y_0*(y_a-y_b))/(deltaX);
+	printf("a: %g, b: %g\n",a,b);
 	return a-b;
 }
+
 

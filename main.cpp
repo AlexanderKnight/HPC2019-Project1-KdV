@@ -75,10 +75,10 @@ int main(int argc, char **argv)
 	// our fourth point after the 7th iteration can be found by calling TwoD[7][4]
 
 	//How many iterations do we want to do? Set 10 for now...
-	int numIter = 10;
+	int numIter = 2;
 
 	//How much time between iterations? Set 0.5 seconds for now...
-	double dt = 0.005;
+	double dt = 0.02;
 
 	//creating 2d array:
 	//double TwoD[numIter][size - 1];
@@ -99,7 +99,6 @@ int main(int argc, char **argv)
 	//}
 
 	//call timestep using the previous iteration from 1 to numIter...
-	printf("Starting timestepping\n");
 	for(int i = 1; i < numIter; i++)
 	{
 		timestep(TwoD[i-1], size, deltaX, dt, TwoD[i]);
