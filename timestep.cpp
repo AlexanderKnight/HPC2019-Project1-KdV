@@ -1,4 +1,5 @@
 #include "kdv.h"
+#include <iostream>
 
 /*
  Argument 1: input is an array double that had the old solutions needing to be timestepped
@@ -12,7 +13,10 @@ void timestep(double* input, int _size, double dx, double dt, double* output)
 {
 
 	//Logic to prevent domain errors grabbing i-1 and i-2 data points & for loop to update output array
-	int backOne, backTwo;
+	//int backOne, backTwo;
+	printf("Inside timestep function\n");
+	output = rk4(input, _size, dx, dt);
+/*
 	for(int i = 0; i < _size; i++)
 	{
 		if(i == 0)
@@ -34,6 +38,6 @@ void timestep(double* input, int _size, double dx, double dt, double* output)
 		// input: 5 data points for the i'th point
 		output[i] = rk4( input[backTwo], input[backOne], input[(i)], input[(i+1)%_size], input[(i+2)%_size], dx, dt );
 	}
-
+*/
 //	return output; 
 }
