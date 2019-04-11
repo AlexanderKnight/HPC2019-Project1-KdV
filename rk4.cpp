@@ -4,30 +4,28 @@
 
 double* k(double *y, double *ki, int size, double deltaX, double h)
 {
-	double y_new[size];
+	double *y_temp = new double[size];
 	for (int i=0;i<size;i++){
 		double y_i;
 		int *near = new int[5];
 		near=checkBounds(i,size);
 		y_i = y[i]+ki[i]*h;
-		y_new[i]=func(ki[near[0]],ki[near[1]],y_i,ki[near[3]],ki[near[4]],deltaX);
+		y_temp[i]=func(ki[near[0]],ki[near[1]],y_i,ki[near[3]],ki[near[4]],deltaX);
+		printf("%g, ",y_temp[i]);
 	}
-	return y_new;
+	return y_temp;
 }
 
 double* rk4(double* y, int size, double deltaX, double h)
 {
-	double y_new[size];
+	double *y_temp = new double[size];
 	double *k1 = new double[size];
 	double *k2 = new double[size];
 	double *k3 = new double[size];
 	double *k4 = new double[size];
+	//k1 = k(y, y_temp, size, deltaX, 0.);
 	k1 = k(y, y, size, deltaX, 0.);
 	printf("done with k1\n");
-	for (int i=0;i<size;i++){
-		printf("%g, ",k1[i]);
-	}
-	printf("\n");
 	k2 = k(y, k1, size, deltaX, h/2.);
 	printf("done with k2\n");
 	k3 = k(y, k2, size, deltaX, h/2.);
@@ -35,6 +33,7 @@ double* rk4(double* y, int size, double deltaX, double h)
 	k4 = k(y, k3, size, deltaX, h);
 	printf("done with k4\n");
 	
+	double y_new[size] = {0};
 	printf("Assigning new values\n");
 	for (int i=0;i<size;i++)
 	{
