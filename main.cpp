@@ -38,6 +38,7 @@ int main(int argc, char **argv)
 	string x;
 	stream >> x;
 	int size = atof(x.c_str());
+	size--;
 
 	//Create double array to hold data points
 	double* input = new double[size];
@@ -75,10 +76,10 @@ int main(int argc, char **argv)
 	// our fourth point after the 7th iteration can be found by calling TwoD[7][4]
 
 	//How many iterations do we want to do? Set 10 for now...
-	int numIter = 2;
+	int numIter = 100002;
 
 	//How much time between iterations? Set 0.5 seconds for now...
-	double dt = 0.02;
+	double dt = 1e-6;
 
 	//creating 2d array:
 	//double TwoD[numIter][size - 1];
