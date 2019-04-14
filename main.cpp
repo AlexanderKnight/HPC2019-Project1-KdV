@@ -76,7 +76,7 @@ int main(int argc, char **argv)
 	// our fourth point after the 7th iteration can be found by calling TwoD[7][4]
 
 	//How many iterations do we want to do? Set 10 for now...
-	int numIter = 200;
+	int numIter = 2000;
 
 	//How much time between iterations? Set 0.5 seconds for now...
 	double dt = 1.e-8;
@@ -112,8 +112,8 @@ int main(int argc, char **argv)
     	string filename = "EvolvedData.dat";
 	ofstream datafile;
 	datafile.open(filename);
-	for (int i=0;i<numIter;i++){
-		for (int j=0;j<size;j++){
+	for (int j=0;j<size;j++){
+		for (int i=0;i<numIter;i++){
 			datafile << " " << TwoD[i][j];
 		}
 		datafile << "\n";

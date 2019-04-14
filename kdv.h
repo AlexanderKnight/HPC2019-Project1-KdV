@@ -35,7 +35,7 @@ static inline double Wtime(void)
 static inline int* checkBounds(int cur, int _size)
 {
 
-	int* solution = new int[5];
+	static int solution [5];
 
 	if(cur == 0)
 	{
