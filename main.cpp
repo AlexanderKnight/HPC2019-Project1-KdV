@@ -7,6 +7,7 @@
 #include <ctype.h>
 #include <algorithm>
 #include <cstring>
+#include <math.h>
 #include "kdv.h"
 using namespace std;
 
@@ -75,10 +76,10 @@ int main(int argc, char **argv)
 	// our fourth point after the 7th iteration can be found by calling TwoD[7][4]
 
 	//How many iterations do we want to do? Set 10 for now...
-	int numIter = 2;
+	int numIter = 200;
 
 	//How much time between iterations? Set 0.5 seconds for now...
-	double dt = 0.02;
+	double dt = 1.e-8;
 
 	//creating 2d array:
 	//double TwoD[numIter][size - 1];

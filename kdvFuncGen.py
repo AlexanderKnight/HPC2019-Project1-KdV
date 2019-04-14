@@ -4,7 +4,7 @@ def func(x):
     y=np.cos(np.pi*x+1)
     return y
 
-points = 10000
+points = 1000
 x = np.linspace(0,2,points, endpoint=False)
 y = func(x)
 f = open("KdVInitData.dat", "w")
