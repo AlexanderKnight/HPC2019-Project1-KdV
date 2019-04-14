@@ -21,7 +21,7 @@ Takes:
 - timestep h (t_(i+1)-t_(i))
   Requires EoS function (func) 
   to be defined in this file.*/
-double * rk4(double* y, int size, double deltaX, double h);
+void rk4(double* y, int size, double deltaX, double h, double* y_new);
 
 void timestep(double* input, int _size, double t, double dt, double* output);
 
