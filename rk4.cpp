@@ -2,9 +2,8 @@
 #include <iostream>
 
 
-double* k(double *y, double *ki, int size, double deltaX, double h, int first)
+void k(double *y, double *ki, int size, double deltaX, double h, int first, double *y_temp)
 {
-	double *y_temp = new double[size];
 	double y_i [size];
 	
 	for (int i=0;i<size;i++){
@@ -13,7 +12,7 @@ double* k(double *y, double *ki, int size, double deltaX, double h, int first)
 
 	for (int i=0;i<size;i++){
 		double y_i;
-		int *near = new int[5];
+		int near [5];
 		near=checkBounds(i,size);
 
 		if( first == 0)
@@ -31,18 +30,18 @@ double* k(double *y, double *ki, int size, double deltaX, double h, int first)
 
 double* rk4(double* y, int size, double deltaX, double h)
 {
-	double *y_dummy = new double[size];
-	double *k1 = new double[size];
-	double *k2 = new double[size];
-	double *k3 = new double[size];
-	double *k4 = new double[size];
+	double y_dummy [size];
+	double k1 [size];
+	double k2 [size];
+	double k3 [size];
+	double k4 [size];
+	double y_new [size];
 	//k1 = k(y, y_temp, size, deltaX, 0.);
-	k1 = k(y, y_dummy, size, deltaX, 0., 0);
-	k2 = k(y, k1, size, deltaX, h/2., 1);
-	k3 = k(y, k2, size, deltaX, h/2.,1);
-	k4 = k(y, k3, size, deltaX, h,1);
+	k1 = k(y, y_dummy, size, deltaX, 0., 0, y_new);
+	k2 = k(y, k1, size, deltaX, h/2., 1, y_new);
+	k3 = k(y, k2, size, deltaX, h/2.,1, y_new);
+	k4 = k(y, k3, size, deltaX, h,1, y_new);
 	
-	double *y_new = new double[size];
 	for (int i=0;i<size;i++)
 	{
 		y_new[i] = y[i]+ h*((1./6.)*k1[i]+(1./3.)*k2[i]+(1./3.)*k3[i]+(1./6.)*k4[i]);
