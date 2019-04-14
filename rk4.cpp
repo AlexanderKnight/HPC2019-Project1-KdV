@@ -5,6 +5,12 @@
 double* k(double *y, double *ki, int size, double deltaX, double h, int first)
 {
 	double *y_temp = new double[size];
+	double y_i [size];
+	
+	for (int i=0;i<size;i++){
+		y_i[i] = y[i]+ki[i]*h;
+	}
+
 	for (int i=0;i<size;i++){
 		double y_i;
 		int *near = new int[5];
@@ -12,13 +18,11 @@ double* k(double *y, double *ki, int size, double deltaX, double h, int first)
 
 		if( first == 0)
 		{
-			y_i = y[i]+ki[i]*h;
-			y_temp[i]=func(y[near[0]],y[near[1]],y_i,y[near[3]],y[near[4]],deltaX);
+			y_temp[i]=func(y[near[0]],y[near[1]],y_i[i],y[near[3]],y[near[4]],deltaX);
 		}
 		else
 		{
-			y_i = y[i]+ki[i]*h;
-			y_temp[i]=func(ki[near[0]],ki[near[1]],y_i,ki[near[3]],ki[near[4]],deltaX);
+			y_temp[i]=func(ki[near[0]],ki[near[1]],y_i[i],ki[near[3]],ki[near[4]],deltaX);
 		}
 		
 	}
