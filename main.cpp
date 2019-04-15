@@ -76,10 +76,10 @@ int main(int argc, char **argv)
 	// our fourth point after the 7th iteration can be found by calling TwoD[7][4]
 
 	//How many iterations do we want to do? Set 10 for now...
-	int numIter = 2000;
+	int numIter = 1000000;
 
 	//How much time between iterations? Set 0.5 seconds for now...
-	double dt = 1.e-8;
+	double dt = 1.e-6;
 
 	//creating 2d array:
 	//double TwoD[numIter][size - 1];
@@ -113,7 +113,7 @@ int main(int argc, char **argv)
 	ofstream datafile;
 	datafile.open(filename);
 	for (int j=0;j<size;j++){
-		for (int i=0;i<numIter;i++){
+		for (int i=0;i<numIter;i=i+1000){
 			datafile << " " << TwoD[i][j];
 		}
 		datafile << "\n";
