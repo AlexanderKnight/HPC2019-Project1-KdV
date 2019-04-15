@@ -23,7 +23,7 @@ Takes:
   to be defined in this file.*/
 void rk4(double* y, int size, double deltaX, double h, double* y_new);
 
-void timestep(double* input, int _size, double t, double dt, double* output);
+//void timestep(double* input, int _size, double t, double dt, double* output);
 
 static inline double Wtime(void)
 {
@@ -32,6 +32,11 @@ static inline double Wtime(void)
 	return tv.tv_sec + tv.tv_usec / 1e6;
 }
 
+/*
+   Makes the domain bounds cyclic, moves elements
+   above and below (-2,-1,_size,_size+1), and moves
+   them back into the domain.
+*/
 static inline int* checkBounds(int cur, int _size)
 {
 

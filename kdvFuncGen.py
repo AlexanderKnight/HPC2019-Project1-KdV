@@ -4,18 +4,23 @@ def func(x):
     y=(np.sin(np.pi*x))
     return y
 
+def compfunc(x):
+    y = 1./(np.cosh(x-10))**2
+    return y
+
+# Change values here to create different resolutions
+# and change the domain. 
 points = 100
-x = np.linspace(0,2,points, endpoint=False)
-y = func(x)
-f = open("KdVInitData.dat", "w")
+startVal = 0
+endVal = 20
+initDataFileName = "KdVInitData.dat"
+
+x = np.linspace(startVal,endVal,points, endpoint=False)
+y = compfunc(x)
+f = open(initDataFileName, "w")
 f.write("{0}\n".format(points))
-f.write("{0}\n".format(2.0/(float(points))))
+f.write("{0}\n".format(float(endVal-startVal)/(float(points))))
 for i in range(points):
     f.write("{0}\n".format(y[i]))
     f.write("{0}\n".format(x[i]))
 f.close
-g = open("TestInitData.dat", "w")
-for i in range(points):
-    g.write("{0} {1}\n".format(x[i],y[i]))
-g.close
-
