@@ -79,7 +79,7 @@ int main(int argc, char **argv)
 	int numIter = 1000000;
 
 	//How much time between iterations? Set 0.5 seconds for now...
-	double dt = 5.e-4;
+	double dt = deltaX*deltaX*deltaX;
 
 	//creating 2d array:
 	//double TwoD[numIter][size - 1];
@@ -111,7 +111,7 @@ int main(int argc, char **argv)
 
     	string filename = "EvolvedData.dat";
 	ofstream datafile;
-	datafile.open(filename);
+	datafile.open(filename .c_str());
 	for (int j=0;j<size;j++){
 		for (int i=0;i<numIter;i=i+1000){
 			datafile << " " << TwoD[i][j];
