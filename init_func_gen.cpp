@@ -12,9 +12,9 @@ int main()
 //##########################################
 // Parameter to change
 //##########################################
-	int size = 500;
-	double start = -10.;
-	double end = 10.;
+	int size = 200;
+	double start = -5.;
+	double end = 5.;
 	// Choices are cos, sin, sech, & exp
 	// cos: cos((2pi/L)*x)
 	// sin: sin((2pi/L)*x)

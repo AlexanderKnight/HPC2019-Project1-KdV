@@ -1,5 +1,5 @@
 #include "kdv.h"
-#include <iostream>
+#include <stdio.h>
 
 /*
    Used to calculate the k array. Parallelization happens here.
@@ -36,6 +36,7 @@ void rk4(double* y, int size, double deltaX, double h, double* y_new)
 	k(y, k1, size, deltaX, h/2., k2);
 	k(y, k2, size, deltaX, h/2., k3);
 	k(y, k3, size, deltaX,    h, k4);
+
 	
 #pragma omp parallel for
 	for (int i=0;i<size;i++)

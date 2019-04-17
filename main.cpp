@@ -22,12 +22,12 @@ int main(int argc, char **argv)
 // Only parameters that may need manually changed
 //######################################################
 	//How many iterations do we want to do? 
-	int numIter = 1e6;
+	int numIter = 1e5;
 	//Save every Nth step. In this scale, saving every
 	//step usually is too much data.
 	//Roughly speaking, 3 orders of magnitude less
 	//than numIter is a good starting point.
-	int save_every_nth_iter = 1e3;
+	int save_every_nth_iter = 1e2;
 
 //######################################################
 // Parameters below should not need to be changed
@@ -87,7 +87,7 @@ int main(int argc, char **argv)
 
 	//We no longer need stream. Let's close this:
 	stream.close();
-	double fileReadTime = Wtime()
+	double fileReadTime = Wtime();
 
 	//I want to timestep through each iteration, but lets make a 2d Array to keep track of all our iterations
 	// row 0 will be the first iteration, row 1 will be the second, and so on.
