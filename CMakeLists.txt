@@ -17,4 +17,4 @@ target_compile_features(kdv PUBLIC c_std_99)
 target_link_libraries(kdv libkdv)
 
 add_executable(init_data init_func_gen.cpp)
-target_link_libraries(initData libinit)
+target_link_libraries(init_data libinit)
