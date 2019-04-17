@@ -1,7 +1,10 @@
 #include "kdv.h"
 #include <iostream>
 
-
+/*
+   Used to calculate the k array. Parallelization happens here.
+   Used for fourth-order runge-kutta.
+*/
 void k(double *y, double *ki, int size, double deltaX, double h, double *y_temp)
 {
 	double y_i [size];
@@ -19,6 +22,10 @@ void k(double *y, double *ki, int size, double deltaX, double h, double *y_temp)
 	}
 }
 
+/*
+   Fourth-order runge-kutta.
+   Updates the y_new array.
+*/
 void rk4(double* y, int size, double deltaX, double h, double* y_new)
 {
 	double k1 [size];

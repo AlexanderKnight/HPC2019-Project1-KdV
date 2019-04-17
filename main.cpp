@@ -17,6 +17,22 @@ using namespace std;
 */ 
 int main(int argc, char **argv)
 {
+
+//######################################################
+// Only parameters that may need manually changed
+//######################################################
+	//How many iterations do we want to do? 
+	int numIter = 1e6;
+	//Save every Nth step. In this scale, saving every
+	//step usually is too much data.
+	//Roughly speaking, 3 orders of magnitude less
+	//than numIter is a good starting point.
+	int save_every_nth_iter = 1e3;
+
+//######################################################
+// Parameters below should not need to be changed
+//######################################################
+
     // handle too many or few arguments...
 	if(argc != 2)
 	{
@@ -75,8 +91,6 @@ int main(int argc, char **argv)
 	// row 0 will be the first iteration, row 1 will be the second, and so on.
 	// our fourth point after the 7th iteration can be found by calling TwoD[7][4]
 
-	//How many iterations do we want to do? Set 10 for now...
-	int numIter = 1000000;
 
 	//How much time between iterations? Set 0.5 seconds for now...
 	double dt = deltaX*deltaX*deltaX;
@@ -109,11 +123,14 @@ int main(int argc, char **argv)
 	
 	//We now have a 2d Array with all iterations!
 
+	//EvolvedData.dat written to be optimized for
+	//gnuplot, which makes plots faster than most
+	//othe plotting sources.
     	string filename = "EvolvedData.dat";
 	ofstream datafile;
 	datafile.open(filename .c_str());
 	for (int j=0;j<size;j++){
-		for (int i=0;i<numIter;i=i+1000){
+		for (int i=0;i<numIter;i=i+save_every_nth_iter){
 			datafile << " " << TwoD[i][j];
 		}
 		datafile << "\n";
