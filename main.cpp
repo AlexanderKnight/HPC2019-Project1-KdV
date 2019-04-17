@@ -33,6 +33,7 @@ int main(int argc, char **argv)
 // Parameters below should not need to be changed
 //######################################################
 
+    double start = Wtime();
     // handle too many or few arguments...
 	if(argc != 2)
 	{
@@ -86,6 +87,7 @@ int main(int argc, char **argv)
 
 	//We no longer need stream. Let's close this:
 	stream.close();
+	double fileReadTime = Wtime()
 
 	//I want to timestep through each iteration, but lets make a 2d Array to keep track of all our iterations
 	// row 0 will be the first iteration, row 1 will be the second, and so on.
@@ -119,6 +121,7 @@ int main(int argc, char **argv)
 		rk4(TwoD[i-1], size, deltaX, dt, TwoD[i]);
 		//memcpy(timestep(TwoD[i-1], size, deltaX, dt), TwoD[i], size*sizeof(double));
 	}
+	double calcTime = Wtime();
 
 	
 	//We now have a 2d Array with all iterations!
@@ -136,6 +139,10 @@ int main(int argc, char **argv)
 		datafile << "\n";
 	}
 	datafile.close();
+	double fileWriteTime = Wtime();
+	printf("File read in: %g\n",fileReadTime-start);
+	printf("Calc time in: %g\n",calcTime-start);
+	printf("File written: %g\n",fileWriteTime-start);
 	return 0;
 
 }
