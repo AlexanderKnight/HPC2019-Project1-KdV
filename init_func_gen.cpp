@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-#include "initFunc.h"
+#include "init.h"
 
 
 int main()

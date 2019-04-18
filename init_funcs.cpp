@@ -1,5 +1,5 @@
 #include <cmath>
-#include "initFunc.h"
+#include "init.h"
 
 #define sqr(a) ((a)*(a))
 

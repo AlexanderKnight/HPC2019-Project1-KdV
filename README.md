@@ -78,3 +78,47 @@ rm plot_*
 
 That last line may be omitted if you want to keep all of the timestep plots.
 
+---
+
+An example of the video output is shown [here]{https://youtu.be/3xA9Cb5XLVM}
+
+---
+
+Despite code around the for loops in the rk4.cpp file, there is no parallelization, as time tests show:
+
+```sh
+Cores: 1
+File read in: 0.000143051
+Calc time in: 2.70381
+File written: 2.79171
+Cores: 2
+File read in: 0.000200987
+Calc time in: 2.66961
+File written: 2.75758
+Cores: 3
+File read in: 0.000150919
+Calc time in: 2.68494
+File written: 2.77323
+Cores: 4
+File read in: 0.000212908
+Calc time in: 2.67505
+File written: 2.76322
+Cores: 5
+File read in: 0.000210047
+Calc time in: 2.69984
+File written: 2.78853
+Cores: 6
+File read in: 0.000218153
+Calc time in: 2.67993
+File written: 2.76789
+Cores: 7
+File read in: 0.000221968
+Calc time in: 2.68864
+File written: 2.77655
+Cores: 8
+File read in: 0.000174999
+Calc time in: 2.68136
+File written: 2.76973
+```
+
+
