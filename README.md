@@ -80,7 +80,7 @@ That last line may be omitted if you want to keep all of the timestep plots.
 
 ---
 
-An example of the video output is shown [here]{https://youtu.be/3xA9Cb5XLVM}
+An example of the video output is shown https://youtu.be/3xA9Cb5XLVM
 
 ---
 
