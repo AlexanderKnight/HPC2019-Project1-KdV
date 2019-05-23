@@ -25,8 +25,10 @@ void Init_Cos(double dx, double* y, int size,
 void Init_Sech(double dx, double* y, int size,
 		double start, double end)
 {
-	for (int i=0; i<size; i++){
-		y[i] = 1./sqr(cosh(((end-start)/2.)-dx*i));
+        const double c = 3.;
+ 	for (int i=0; i<size; i++){
+	        y[i] = .5*c/sqr(cosh(.5*sqrt(c)*(dx*i + start)));
+		//y[i] = 1./sqr(cosh(((end-start)/2.)-dx*i));
 	}
 }
 

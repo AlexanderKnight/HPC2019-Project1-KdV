@@ -21,7 +21,7 @@ int main()
 	// sech: sech^2(x-L/2)
 	// exp: exp(-(x-L/2)^2)
 	std::string func;
-	func = "exp";
+	func = "sech";
 
 //##########################################
 // Should not need anything below here
